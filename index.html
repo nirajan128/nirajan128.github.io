@@ -3,12 +3,215 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
-    <title>Nirajan Shrestha</title>
+    <title>Nirajan Portfolio Desktop</title>
+
+    <!-- Bootstrap CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
+
+    <link rel="stylesheet" href="./styles.css">
 </head>
 <body>
-    <h1>Portfolio</h1>
-  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.min.js" integrity="sha384-G/EV+4j2dNv+tEPo3++6LCgdCROaejBqfUeNjuKAiuXbjrxilcCdDz6ZAVfHWe1Y" crossorigin="anonymous"></script>
+  <!-- MINI TERMINAL INFO WIDGET -->
+<div id="miniTerminal">
+    <div id="miniTerminalText"></div>
+</div>
+
+
+  <!-- BOOT SCREEN -->
+<div id="bootScreen">
+    <div id="bootText"></div>
+</div>
+
+    <!-- Desktop Background -->
+    <div id="desktop" class="bg-dark"></div>
+
+    <!-- Folders (will be placed randomly by JS) -->
+    <div id="folders">
+        <div class="folder" data-modal="aboutModal">
+            <i class="bi bi-folder-fill folder-icon"></i>
+            <p>About Me</p>
+        </div>
+
+        <div class="folder" data-modal="experienceModal">
+            <i class="bi bi-folder-fill folder-icon"></i>
+            <p>Experience</p>
+        </div>
+
+        <div class="folder" data-modal="projectsModal">
+            <i class="bi bi-folder-fill folder-icon"></i>
+            <p>Projects</p>
+        </div>
+
+        <div class="folder" data-modal="contactModal">
+            <i class="bi bi-folder-fill folder-icon"></i>
+            <p>Contact</p>
+        </div>
+    </div>
+
+    <!-- MODALS (Windows-style) -->
+
+    <!-- ABOUT -->
+    <div class="modal-window" id="aboutModal">
+        <div class="title-bar">
+            <span>About Me</span>
+            <button class="close-btn" onclick="closeWindow('aboutModal')">✖</button>
+        </div>
+        <div class="content">
+            <h3>Nirajan Shrestha</h3>
+            <p>Software Developer passionate about backend systems, web development, and cloud computing.</p>
+        </div>
+    </div>
+
+    <!-- EXPERIENCE -->
+    <div class="modal-window" id="experienceModal">
+        <div class="title-bar">
+            <span>Experience</span>
+            <button class="close-btn" onclick="closeWindow('experienceModal')">✖</button>
+        </div>
+        <div class="content">
+            <p class="fw-bold">Select an Experience File:</p>
+
+            <div class="sub-folder" onclick="openWindow('job1Modal')">
+                <i class="bi  bi-file-earmark-text fs-italic"></i> Application_Developer_Co-op.txt
+            </div>
+
+            <div class="sub-folder" onclick="openWindow('job2Modal')">
+                <i class="bi  bi-file-earmark-text fs-italic"></i> Application_Developer_Part_Time.txt
+            </div>
+        </div>
+    </div>
+
+    <!-- EXPERIENCE DETAILS -->
+    <div class="modal-window" id="job1Modal">
+        <div class="title-bar">
+            <span>Experience/Application_Developer_Co-op.txt</span>
+            <button class="close-btn" onclick="closeWindow('job1Modal')">✖</button>
+        </div>
+        <div class="content">
+            <h2 ><span class="fw-bold">Company: </span>Evenica Corp</h2>
+            <h4><span class="fw-bold">Duration: </span>8 months (January 2025 - September 2025 )</h4>
+            <ul>
+              <li>Worked with Microsoft Dynamics 365 Commerce (MSD65) technologies.</li>
+              <li>Built and customized Site Builder modules used in enterprise e-commerce solutions.</li>
+              <li>Developed features using React, TypeScript, and API integrations.</li>
+              <li>Collaborated with senior developers to implement UI/UX components and improve existing modules.</li>
+              <li>Gained hands-on experience with version control, Agile processes, and cloud-based development.</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="modal-window" id="job2Modal">
+        <div class="title-bar">
+            <span>Experience/Application_Developer_Part_Time.txt</span>
+            <button class="close-btn" onclick="closeWindow('job2Modal')">✖</button>
+        </div>
+        <div class="content">
+             <h2><span class="fw-bold">Company: </span>Evenica</h2>
+        <h4><span class="fw-bold">Duration: </span>September 2025 – Present</h4>
+        <ul>
+            <li>Developed custom components using <strong>Next.js</strong> in a headless <strong>e4 environment</strong>.</li>
+            <li>Containerized applications and workflows using <strong>Docker</strong>.</li>
+            <li>Performed end-to-end and UI testing using <strong>Cypress</strong>.</li>
+            <li>Enhanced frontend functionality and implemented interactive components in modern web applications.</li>
+            <li>Collaborated on feature planning, debugging, and optimization for production-ready deployments.</li>
+        </ul>
+        </div>
+    </div>
+
+    <!-- PROJECTS -->
+    <div class="modal-window" id="projectsModal">
+        <div class="title-bar">
+            <span>Projects</span>
+            <button class="close-btn" onclick="closeWindow('projectsModal')">✖</button>
+        </div>
+        <div class="content">
+            <div class="sub-folder" onclick="openWindow('proj1Modal')">
+                <i class="bi bi-folder2-open"></i> InventoryVista
+            </div>
+
+            <div class="sub-folder" onclick="openWindow('proj2Modal')">
+                <i class="bi bi-folder2-open"></i> ChickenCraft Game
+            </div>
+        </div>
+    </div>
+
+    <!-- PROJECT DETAILS -->
+    <div class="modal-window" id="proj1Modal">
+        <div class="title-bar">
+            <span>InventoryVista</span>
+            <button class="close-btn" onclick="closeWindow('proj1Modal')">✖</button>
+        </div>
+        <div class="content">
+            <p>Inventory system built with Express.js, PostgreSQL, and EJS.</p>
+        </div>
+    </div>
+
+    <div class="modal-window" id="proj2Modal">
+        <div class="title-bar">
+            <span>ChickenCraft Game</span>
+            <button class="close-btn" onclick="closeWindow('proj2Modal')">✖</button>
+        </div>
+        <div class="content">
+            <p>Java OOP game involving chickens with abilities (feed, hit, play).</p>
+        </div>
+    </div>
+
+    <!-- CONTACT -->
+    <div class="modal-window" id="contactModal">
+        <div class="title-bar">
+            <span>Contact</span>
+            <button class="close-btn" onclick="closeWindow('contactModal')">✖</button>
+        </div>
+        <div class="content">
+            <p>Email: nirajan@example.com</p>
+            <p>GitHub: github.com/nirajanshrestha</p>
+        </div>
+    </div>
+
+    <!-- TASKBAR -->
+<div id="taskbar">
+    <div id="start-menu-btn"><i class="bi bi-windows"></i></div>
+
+    <div class="task-btn" onclick="openWindow('settingsModal')">
+        <i class="bi bi-gear"></i> Settings
+    </div>
+
+    <div class="task-btn" onclick="openWindow('terminalModal')">
+        <i class="bi bi-terminal"></i> Terminal
+    </div>
+
+    <div id="taskbar-clock"></div>
+</div>
+
+<!-- SETTINGS WINDOW -->
+<div class="modal-window" id="settingsModal">
+    <div class="title-bar">
+        <span>Settings</span>
+        <button class="close-btn" onclick="closeWindow('settingsModal')">✖</button>
+    </div>
+    <div class="content">
+        <label>Change Desktop Background:</label>
+        <input type="color" id="bgColorPicker">
+        <button class="btn btn-primary mt-2" onclick="changeBackground()">Apply</button>
+    </div>
+</div>
+
+<!-- TERMINAL WINDOW -->
+<div class="modal-window" id="terminalModal">
+    <div class="title-bar">
+        <span>Terminal</span>
+        <button class="close-btn" onclick="closeWindow('terminalModal')">✖</button>
+    </div>
+    <div class="content">
+        <div id="terminalScreen"></div>
+        <input id="terminalInput" type="text" placeholder="Type here..." onkeypress="terminalEnter(event)">
+    </div>
+</div>
+
+
+    <script src="./script.js"></script>
 </body>
 </html>
